@@ -153,7 +153,10 @@ if testText:
 if text_input:
     statusBar = importFrame.status("Processing...", expanded=True)
 
-    ner_model, ner_tokenizer = load_Bert()
+    try:
+        ner_model, ner_tokenizer = load_Bert()
+    except Exception as e:
+        st.text(e)
 
     context_explanation = get_context_explanation(text_input, ner_model, ner_tokenizer)
 
