@@ -1,0 +1,66 @@
+Layer (type);Output Shape  ;Param #;Connected to 
+input (InputLayer) ;(None, 32, 128, 3);0;-
+lambda (Lambda) ;(None, 32, 128, 3) ;0;input[0][0]
+conv2d (Conv2D);(None, 32, 128, 16);448;lambda[0][0]
+batch_normalization (BatchNormalization);(None, 32, 128, 16) ;64;conv2d[0][0]
+leaky_re_lu (LeakyReLU) ;(None, 32, 128, 16) ;0;batch_normalization[0][0]
+conv2d_1 (Conv2D) ;(None, 32, 128, 16);2320;leaky_re_lu[0][0]
+batch_normalization_1 (BatchNormalization);(None, 32, 128, 16);64;conv2d_1[0][0]
+conv2d_2 (Conv2D);(None, 32, 128, 16);64;lambda[0][0]
+add (Add);(None, 32, 128, 16);0;batch_normalization_1[0][...
+leaky_re_lu_1 (LeakyReLU);(None, 32, 128, 16);0;add[0][0] 
+dropout (Dropout);(None, 32, 128, 16);0;leaky_re_lu_1[0][0]
+conv2d_3 (Conv2D);(None, 16, 64, 16) ;2320;dropout[0][0]
+batch_normalization_2 (BatchNormalization);(None, 16, 64, 16);64;conv2d_3[0][0]
+leaky_re_lu_2 (LeakyReLU);(None, 16, 64, 16);0;batch_normalization_2[0][...
+conv2d_4 (Conv2D);(None, 16, 64, 16);2320;leaky_re_lu_2[0][0]
+batch_normalization_3 (BatchNormalization);(None, 16, 64, 16);64;conv2d_4[0][0]
+conv2d_5 (Conv2D);(None, 16, 64, 16);272;dropout[0][0]
+add_1 (Add);(None, 16, 64, 16);0;batch_normalization_3[0][...
+leaky_re_lu_3 (LeakyReLU);(None, 16, 64, 16);0;add_1[0][0]
+dropout_1 (Dropout);(None, 16, 64, 16);0;leaky_re_lu_3[0][0]
+conv2d_6 (Conv2D);(None, 16, 64, 16);2320;dropout_1[0][0]
+batch_normalization_4 (BatchNormalization);(None, 16, 64, 16);64;conv2d_6[0][0]
+leaky_re_lu_4 (LeakyReLU);(None, 16, 64, 16);0;batch_normalization_4[0][...
+conv2d_7 (Conv2D);(None, 16, 64, 16);2320;leaky_re_lu_4[0][0]
+batch_normalization_5 (BatchNormalization);(None, 16, 64, 16);64;conv2d_7[0][0]
+add_2 (Add);(None, 16, 64, 16);0;batch_normalization_5[0][...
+leaky_re_lu_5 (LeakyReLU);(None, 16, 64, 16);0;add_2[0][0]
+dropout_2 (Dropout);(None, 16, 64, 16);0;eaky_re_lu_5[0][0]
+conv2d_8 (Conv2D);(None, 8, 32, 32);4640;dropout_2[0][0]
+batch_normalization_6 (BatchNormalization);(None, 8, 32, 32);128;conv2d_8[0][0]
+leaky_re_lu_6 (LeakyReLU);(None, 8, 32, 32);0;batch_normalization_6[0][...
+conv2d_9 (Conv2D);(None, 8, 32, 32);9248;leaky_re_lu_6[0][0]
+batch_normalization_7 (BatchNormalization);(None, 8, 32, 32);128;conv2d_9[0][0]
+conv2d_10 (Conv2D);(None, 8, 32, 32);544;dropout_2[0][0]
+add_3 (Add);(None, 8, 32, 32);0;batch_normalization_7[0][...
+leaky_re_lu_7 (LeakyReLU);(None, 8, 32, 32);0;add_3[0][0]
+dropout_3 (Dropout);(None, 8, 32, 32);0;leaky_re_lu_7[0][0]
+conv2d_11 (Conv2D);(None, 8, 32, 32);9248;dropout_3[0][0]
+batch_normalization_8 (BatchNormalization);(None, 8, 32, 32);128;conv2d_11[0][0]
+leaky_re_lu_8 (LeakyReLU);(None, 8, 32, 32);0;batch_normalization_8[0][...
+conv2d_12 (Conv2D);(None, 8, 32, 32);9248;leaky_re_lu_8[0][0]
+batch_normalization_9 (BatchNormalization);(None, 8, 32, 32);128;conv2d_12[0][0]
+add_4 (Add);(None, 8, 32, 32);0;batch_normalization_9[0][...
+leaky_re_lu_9 (LeakyReLU);(None, 8, 32, 32);0;add_4[0][0]
+dropout_4 (Dropout);(None, 8, 32, 32);0;leaky_re_lu_9[0][0]
+conv2d_13 (Conv2D);(None, 8, 32, 64);18496;dropout_4[0][0]
+batch_normalization_10 (BatchNormalization);(None, 8, 32, 64);256;conv2d_13[0][0]
+leaky_re_lu_10 (LeakyReLU);(None, 8, 32, 64) ;0;batch_normalization_10[0]...
+conv2d_14 (Conv2D);(None, 8, 32, 64);36928;leaky_re_lu_10[0][0]
+batch_normalization_11 (BatchNormalization);(None, 8, 32, 64);256;conv2d_14[0][0]
+conv2d_15 (Conv2D);(None, 8, 32, 64);2112;dropout_4[0][0]
+add_5 (Add);(None, 8, 32, 64);0;batch_normalization_11[0]...
+leaky_re_lu_11 (LeakyReLU);(None, 8, 32, 64);0;add_5[0][0]
+dropout_5 (Dropout) ;(None, 8, 32, 64);0;leaky_re_lu_11[0][0] 
+conv2d_16 (Conv2D);(None, 8, 32, 64);36928;dropout_5[0][0]
+batch_normalization_12 (BatchNormalization);(None, 8, 32, 64);256;conv2d_16[0][0]
+leaky_re_lu_12 (LeakyReLU);(None, 8, 32, 64);0;batch_normalization_12[0]...
+conv2d_17 (Conv2D);(None, 8, 32, 64);36928;leaky_re_lu_12[0][0] 
+batch_normalization_13 (BatchNormalization) ;(None, 8, 32, 64);256;conv2d_17[0][0]
+add_6 (Add);(None, 8, 32, 64);0;batch_normalization_13[0]...
+leaky_re_lu_13 (LeakyReLU);(None, 8, 32, 64);0;add_6[0][0] 
+dropout_6 (Dropout);(None, 8, 32, 64);0;leaky_re_lu_13[0][0]
+reshape (Reshape);(None, 256, 64);0;dropout_6[0][0]
+bidirectional (Bidirectional);(None, 256, 128);66048;reshape[0][0]
+output (Dense);(None, 256, 63);8127;bidirectional[0][0]

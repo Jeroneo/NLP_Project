@@ -1,0 +1,10 @@
+streamlit
+pandas
+numpy
+opencv-python-headless
+torch
+torchvision
+torchaudio
+transformers
+mltu
+safetensors

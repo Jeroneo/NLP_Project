@@ -1,4 +1,3 @@
-import tensorflow as tf
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -31,17 +30,6 @@ def get_input_model_image(imported_image):
         except:
             pass
         finally:
-            #Resize the image to a 1024x0124 square, keeping the aspect_ratio
-            #img = tf.image.resize(
-            #                        images=image,
-            #                        size=input_shape[:2],
-            #                        method=tf.image.ResizeMethod.BILINEAR,
-            #                        preserve_aspect_ratio=True,
-            #                        antialias=False,
-            #                        name=None
-            #                        )
-            
-            #Resize the image to a 1024x0124 square
             img = cv2.resize(image, input_shape[:2])
 
             new_shape = img.shape # retrieve the new shape of the image

@@ -2,7 +2,6 @@ from mltu.inferenceModel import OnnxInferenceModel
 from mltu.utils.text_utils import ctc_decoder
 from mltu.configs import BaseModelConfigs
 
-import tensorflow as tf
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -25,7 +24,7 @@ st.title("OCR Model")
 
 # ----------------------------------------------------------------------------------------------------
 
-input_shape = (32, 128, 3)
+input_shape = (128, 32, 3)
 
 # -------------------------------------- Testing the model ---------------------------------------------
 
@@ -38,15 +37,8 @@ def get_input_model_image(imported_image):
     except:
         pass
     finally:
-        #Resize the image to a 1024x0124 square, keeping the aspect_ratio
-        img = tf.image.resize(
-                                images=imported_image,
-                                size=input_shape[:2],
-                                method=tf.image.ResizeMethod.BILINEAR,
-                                preserve_aspect_ratio=True,
-                                antialias=False,
-                                name=None
-                                )
+        #Resize the image to a 1024x0124 square
+        img = cv2.resize(imported_image, input_shape[:2])
 
         cv2.imwrite(f"./ressources/images/app_output_2.jpg", np.array(img))
 
