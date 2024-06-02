@@ -157,8 +157,6 @@ if text_input:
 
     context_explanation = get_context_explanation(text_input, ner_model, ner_tokenizer)
 
-    #context_explanation = text_input
-
     statusBar.update(label="Process completed!", state="complete", expanded=False)
     
     outputFrame.subheader("Result")
