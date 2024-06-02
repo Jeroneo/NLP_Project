@@ -7,4 +7,4 @@ torchvision
 torchaudio
 transformers
 mltu
-safetensors
+time
